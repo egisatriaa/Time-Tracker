@@ -1,0 +1,54 @@
+<div class="container my-5">
+    <h4>List Project</h4>
+    <div class="mb-3 d-flex justify-content-end">
+        <%= link_to "Tambah Project", new_project_path, class: "btn btn-primary", onclick: "window.location.href='#{new_project_path}';" %>
+    </div>
+    <div id="projects">
+        <div class="border-bottom border-top row fw-bold pt-2">
+            <div class="col-1 d-flex justify-content-center">ID</div>
+            <div class="col-2 d-flex justify-content-center">Code</div>
+            <div class="col-3 d-flex justify-content-center">Name</div>
+            <div class="col-2 d-flex justify-content-center">Total Task</div>
+            <div class="col-2 d-flex justify-content-center">Members</div>
+            <div class="col-2 d-flex justify-content-center">Action</div>
+        </div>
+        <% @projects.each do |project| %>
+            <div class="border-bottom py-2 row">
+                <div class="col-1 d-flex justify-content-center align-items-center"><%= project.id %></div>
+                <div class="col-2 d-flex justify-content-center align-items-center">
+                    <% if project.code.present? %>
+                        [<%= project.code %>]
+                    <% else %>
+                        -
+                    <% end %>
+                </div>
+                <div class="col-3 d-flex justify-content-center align-items-center"><%= project.name %></div>
+                <div class="col-2 d-flex justify-content-center align-items-center"><%= project.tasks.count %></div>
+                <div class="col-2 d-flex justify-content-center align-items-center"><%= project.project_members.count %></div>
+                <div class="col-2 d-flex justify-content-center align-items-center gap-1">
+                    <button type="button" class="btn btn-primary" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#members" 
+                            data-project-id="<%= project.id %>">
+                        Members
+                    </button>
+                    <%= link_to "Edit", edit_project_path(project), class: "btn btn-success", onclick: "window.location.href='#{edit_project_path(project)}';" %>
+                    <button type="button" class="btn btn-danger" onclick="confirmDelete(<%= project.id %>)">Delete</button>
+                    <%= button_to "Delete", project_path(project), method: :delete, class: "btn btn-danger", style: "display:none;" %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<script>
+function confirmDelete(projectId) {
+    const confirmation = confirm("Are you sure you want to delete this project?");
+    if (confirmation) {
+        // Jika pengguna mengkonfirmasi, lakukan penghapusan
+        document.querySelector(`form[action="/projects/${projectId}"]`).submit();
+    }
+}
+</script>
+
+<%= render "projects/member" %> <!-- Memanggil modal di sini -->

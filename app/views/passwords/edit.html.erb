@@ -1,0 +1,34 @@
+<div class="container d-flex flex-row justify-content-center align-items-center vh-100">
+    <div class= "card p-5 mx-auto my-auto">
+        <h1>Update Password</h1>
+
+        <div class="card-body">
+            <%= form_with model: current_user, url: password_path do |form|%>
+                <% if form.object.errors.any? %>
+                    <%= form.object.errors.full_messages.each do |message| %>
+                        <div><%= message %></div>
+                    <% end %>
+                <% end %>
+
+                <div class="field">
+                    <%= form.label :password_challenge, "Current Password" %><br />
+                    <%= form.password_field :password_challenge %>
+                </div>
+                
+                <div class="field">    
+                    <%= form.label :password, "New Password" %><br />
+                    <%= form.password_field :password %>
+                </div>
+
+                <div class="field">    
+                    <%= form.label :password_confirmation %><br />
+                    <%= form.password_field :password_confirmation %>
+                </div>
+
+                <div class="actions py-3">
+                    <%= form.submit "Update Password" %>
+                </div> 
+            <% end %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #1496c8ff;">
+  <div class="container-fluid w-100">
+    <ul class="navbar-nav ms-4">
+      <li class="nav-item">
+        <a href="<%= log_task_path %>" class="nav-link text-white" onclick="window.location.href='<%= log_task_path %>';">Time</a>
+      </li>
+
+      <!-- Tampilkan proyek hanya untuk admin -->
+      <% if current_user.admin? %> <!-- Hanya admin yang bisa melihat Projects -->
+        <li class="nav-item">
+          <a href="<%= projects_path %>" class="nav-link text-white" onclick="window.location.href='<%= projects_path %>';">Projects</a>
+        </li>
+      <% end %>
+    </ul>
+
+    <% if current_user %> <!-- Cek apakah current_user ada -->
+      <div class="dropdown me-5">
+        <a class="" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+          <span class="bg-white text-dark fw-bold border rounded-circle" style="padding: 0.55rem 0.65rem;"><%= current_user.username[0,2].upcase %></span>
+          <span class="text-white ms-2"><%= current_user.username %></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li>
+            <%= link_to "Edit Password", edit_password_path, class:"dropdown-item" %>
+          </li>
+          <li>
+            <%= button_to "Log Out", session_path, method: :delete, class:"dropdown-item" %>
+          </li>
+        </ul>
+      </div>
+    <% end %> <!-- Menutup cek current_user -->
+  </div>
+</nav>

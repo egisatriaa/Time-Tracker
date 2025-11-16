@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TimeTracker</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <% if current_user%>
+      <%= render "layouts/navbar" %>
+    <% end %>
+    <!-- <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %> -->
+
+    <%= javascript_include_tag "create_log" %>
+    <%= javascript_include_tag "time_page" %>
+    <%= javascript_include_tag "timer_button" %>
+    <%= javascript_include_tag "modal" %>
+    <%= javascript_include_tag "member_search" %>
+
+    <%= yield %>
+  </body>
+</html>

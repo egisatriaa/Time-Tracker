@@ -1,0 +1,18 @@
+<div class="container d-flex flex-row justify-content-center align-items-center vh-100">
+    <div class= "card p-5 mx-auto my-auto">
+        <h2>Reset Your Password</h2>
+
+        <div class="card-body">
+            <%= form_with model: @user, url: password_reset_path do |form|%>
+                <div class="field">
+                    <%= form.label :email %><br />
+                    <%= form.text_field :email %>
+                </div>
+
+                <div class="actions py-3">
+                    <%= form.submit "Reset Password" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

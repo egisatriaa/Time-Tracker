@@ -1,0 +1,70 @@
+<div class="m-5">
+  <div class="row">
+    <div class="col-1">
+      <%= render "log_tasks/create_time" %>
+      <div class="d-flex justify-content-center">Track time</div>
+    </div>
+    <div class="col-11">
+      <div class="row">
+        <div class="col-1 d-flex justify-content-start p-0">
+          <i id="arrow-left" class="fa-solid fa-arrow-left border border-muted align-self-center" style="border-radius: 20% 0 0 20%; padding: 12px; cursor: pointer;"></i>
+          <i id="arrow-right" class="fa-solid fa-arrow-right border border-muted align-self-center" style="border-radius: 0 20% 20% 0; padding: 12px; cursor: pointer;"></i>
+        </div>
+        <div class="col-10 d-flex gap-2 p-0">
+          <div id="current-date" class="align-self-center fs-2"><%= Date.today.strftime("%A, %d %b") %></div>
+          <a id="return" class="align-self-center fs-6" style="cursor: pointer;">Return to today</a>
+        </div>
+        <div class="col-1 d-flex justify-content-end">
+          <i class="fa-solid fa-calendar border rounded-2 border-muted align-self-center" style="padding: 12px"></i>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-10">
+          <div id="days" class="row p-0">
+            <div id="day-mon" class="col-1 day">
+              <div class="fs-5">Mon</div>
+              <span id="total-mon">0:00</span>
+              <i id="clock-mon" class="fa-regular fa-clock" style="display: none;"></i>
+            </div>
+            <div id="day-tue" class="col-1 day">
+              <div class="fs-5">Tue</div>
+              <span id="total-tue">0:00</span>
+              <i id="clock-tue" class="fa-regular fa-clock" style="display: none;"></i>
+            </div>
+            <div id="day-wed" class="col-1 day">
+              <div class="fs-5">Wed</div>
+              <span id="total-wed">0:00</span>
+              <i id="clock-wed" class="fa-regular fa-clock" style="display: none;"></i>
+            </div>
+            <div id="day-thu" class="col-1 day">
+              <div class="fs-5">Thu</div>
+              <span id="total-thu">0:00</span>
+              <i id="clock-thu" class="fa-regular fa-clock" style="display: none;"></i>
+            </div>
+            <div id="day-fri" class="col-1 day">
+              <div class="fs-5">Fri</div>
+              <span id="total-fri">0:00</span>
+              <i id="clock-fri" class="fa-regular fa-clock" style="display: none;"></i>
+            </div>
+            <div id="day-sat" class="col-1 day">
+              <div class="fs-5">Sat</div>
+              <span id="total-sat">0:00</span>
+              <i id="clock-sat" class="fa-regular fa-clock" style="display: none;"></i>
+            </div>
+            <div id="day-sun" class="col-1 day">
+              <div class="fs-5">Sun</div>
+              <span id="total-sun">0:00</span>
+              <i id="clock-sun" class="fa-regular fa-clock" style="display: none;"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 text-end">
+          <div>Week Total</div>
+          <div id="week-total">0:00</div>
+        </div>
+      </div>
+      <div id="tasks" class="row"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<!-- Modal untuk memilih members -->
+<div class="modal fade" id="members" tabindex="-1" aria-labelledby="membersLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="membersLabel">Search Users</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Search bar -->
+        <input type="text" id="searchUser" class="form-control" placeholder="Search by username or email..." aria-label="Search users">
+        
+        <!-- Dropdown untuk menampilkan hasil -->
+        <ul class="dropdown-menu w-100 mt-2" id="userDropdown" style="display: none;"></ul>
+        
+        <!-- Daftar member yang telah dipilih -->
+        <div class="mt-3">
+          <h5>Selected Members:</h5>
+          <ul id="selectedMembers" class="list-group"></ul>
+        </div>
+
+        <!-- Daftar anggota yang ada -->
+        <div class="mt-3">
+          <h5>Existing Members:</h5>
+          <ul id="existingMembers" class="list-group"></ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveMembersBtn">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Hidden input untuk menyimpan ID proyek -->
+<input type="hidden" name="project[id]" value="<%= @project.present? ? @project.id : '' %>">

@@ -1,0 +1,56 @@
+<div class="container" data-user-id="<%= current_user.id %>">
+    <div class="mt-5 pb-3 border-bottom w-100">
+      <h2><%= @project.new_record? ? "New Project" : "Edit Project" %></h2>
+    </div>
+  
+    <%= form_with(model: @project, url: @project.new_record? ? create_project_path : project_path(@project), method: @project.new_record? ? :post : :patch) do |form| %>
+      <div class="container">
+        <div class="field row my-3">
+          <%= form.label "Project name", class: "col-2 fw-bold" %>
+          <%= form.text_field :name, class: "col-10" %>
+        </div>
+        <div class="field row my-2">
+          <%= form.label "Project code", class: "col-2 fw-bold" %>
+          <%= form.text_field :code, class: "col-2" %>
+        </div>
+        <div class="field row mb-3">
+          <div class="col-2"></div>
+          <small class="col-10 text-muted" style="margin-left: -10px; margin-top:-10px">Optional. A code helps identify your project. You can use any combination of numbers or letters.</small>
+        </div>
+      </div>
+  
+      <div class="p-2 border-bottom border-top w-100 border-dark" style="background-color: #eeeeee;">
+        <h4>Task</h4>
+      </div>
+  
+      <div id="tasks">
+        <% unless @project.new_record? %>
+          <% @project.tasks.each_with_index do |task, index| %>
+            <div class="input-group py-3 border-bottom">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-danger remove-task" type="button">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div class="form-control task-name"><%= task.name %></div>
+              <input type="hidden" name="project[tasks_attributes][<%= index %>][id]" value="<%= task.id %>">
+              <input type="hidden" name="project[tasks_attributes][<%= index %>][name]" id="project_tasks_attributes_<%= index %>_name" value="<%= task.name %>">
+              <input type="hidden" name="project[tasks_attributes][<%= index %>][user_id]" id="project_tasks_attributes_<%= index %>_user_id" value="<%= task.user_id %>">
+              <input type="hidden" name="project[tasks_attributes][<%= index %>][_destroy]" id="project_tasks_attributes_<%= index %>__destroy" value="false">
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  
+      <div class="input-group my-3">
+        <input type="text" id="new-task-name" class="form-control" placeholder="Add a task...">
+      </div>
+  
+      <div class="actions py-3">
+        <%= form.submit @project.new_record? ? "Save Project" : "Update Project" %>
+      </div>
+    <% end %>
+  </div>
+  
+  <%= javascript_include_tag "tasks" %>
+  
