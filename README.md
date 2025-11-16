@@ -139,3 +139,13 @@ Teknologi: *Ruby on Rails, ERB, Bootstrap 5, Hotwire (Turbo & Stimulus)*
 Aplikasi ini dikembangkan sebagai bagian dari kegiatan **Praktik Kerja Lapangan (PKL)** di  
 **PT Kharisma Indotech Pratama**.  
 Aplikasi ini tidak diperbolehkan untuk penggunaan komersial tanpa izin resmi dari perusahaan.
+
+
+## Screenshot aplikasi
+<img width="1615" height="885" alt="image" src="https://github.com/user-attachments/assets/56fcf648-1922-4e69-a499-ab274968f7d5" />
+<img width="1161" height="812" alt="image" src="https://github.com/user-attachments/assets/38aa6291-26f6-46b1-99e3-6c262ef1d249" />
+![WhatsApp Image 2025-11-16 at 12 36 08_7f5f470a](https://github.com/user-attachments/assets/b5dbddd9-c11f-4888-b5e2-2460bce84f22)
+![WhatsApp Image 2025-11-16 at 12 36 19_fe666386](https://github.com/user-attachments/assets/fa26b655-6330-4e8f-86b5-e72f2f1d6fd6)
+![WhatsApp Image 2025-11-16 at 12 38 17_91a1feba](https://github.com/user-attachments/assets/3882f6dc-9dec-40ad-acea-ff34a1adb4a6)
+
+
