@@ -134,7 +134,7 @@ Full-Stack Developer
 Teknologi: *Ruby on Rails, ERB, Bootstrap 5, Hotwire (Turbo & Stimulus)*
 
 
-## Lisensi## 📄 Lisensi
+## 📄 Lisensi
 
 Aplikasi ini dikembangkan sebagai bagian dari kegiatan **Praktik Kerja Lapangan (PKL)** di  
 **PT Kharisma Indotech Pratama**.  
